@@ -16,7 +16,9 @@ services:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
     networks:
-      - bridge
+      - custom_network
+    depends_on:
+      - db
   
   webserver:
     build: 
@@ -31,7 +33,7 @@ services:
     depends_on:
       - app
     networks:
-      - bridge
+      - custom_network
 
   db:
     image: mysql:8.0
@@ -40,16 +42,17 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
-      - bridge
+      - custom_network
 
 networks:
-  bridge:
+  custom_network:
     driver: bridge
 
 volumes:
