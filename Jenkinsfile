@@ -15,7 +15,7 @@ pipeline {
                 script {
                     // Clone the repository
                     sh 'echo "Checking out source code..."'
-                    chekcout scm
+                    checkout scm
                 }
             }
         }
