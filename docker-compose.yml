@@ -16,7 +16,7 @@ services:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
     networks:
-      - app_network
+      - bridge
   
   webserver:
     build: 
@@ -53,4 +53,5 @@ networks:
     driver: bridge
 
 volumes:
-  app_data:       
+  app_data:
+  db_data:       
