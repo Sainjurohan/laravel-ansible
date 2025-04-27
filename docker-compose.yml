@@ -32,5 +32,4 @@ networks:
     driver: bridge
 
 volumes:
-  app_data:
-  app_socket:       
+  app_data:       
