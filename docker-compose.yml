@@ -31,7 +31,7 @@ services:
     depends_on:
       - app
     networks:
-      - app_network
+      - bridge
 
   db:
     image: mysql:8.0
@@ -46,7 +46,7 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - app-network
+      - bridge
 
 networks:
   bridge:
