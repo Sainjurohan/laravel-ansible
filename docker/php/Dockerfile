@@ -1,4 +1,4 @@
-FROM php8.3-fpm
+FROM php:8.3-fpm
 
 # Set working directory
 WORKDIR /var/www/html/todo/
