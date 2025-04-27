@@ -55,6 +55,7 @@ pipeline {
                     sh "docker compose exec app php artisan migrate --force"
                 }
             }
+        }
     }
 
     post {
