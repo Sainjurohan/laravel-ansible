@@ -46,6 +46,11 @@ RUN sed 's_@php artisan package:discover_/bin/true_;' -i composer.json \
 
 RUN php artisan key:generate
 
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html/todo/storage /var/www/html/todo/bootstrap/cache \
+ && chmod -R 775 /var/www/html/todo/storage /var/www/html/todo/bootstrap/cache
+
+
 # Expose port for PHP-FPM
 EXPOSE 9000
     
