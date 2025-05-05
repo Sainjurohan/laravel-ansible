@@ -27,7 +27,7 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 // adding routes to debug the load balancer
-Route::get('/server', function () {
+Route::get('server', function () {
     return gethostname();
 });
 
