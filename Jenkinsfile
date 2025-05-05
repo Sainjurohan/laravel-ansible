@@ -52,7 +52,7 @@ pipeline {
                 script {
                     // Run Laravel migrations
                     sh 'echo "Running Laravel migrations..."'
-                    sh "docker compose exec db artisan migrate:fresh --force"
+                    sh "docker compose exec laravel_app1 php artisan migrate:fresh --force"
                 }
             }
         }
