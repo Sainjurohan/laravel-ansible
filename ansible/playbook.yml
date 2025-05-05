@@ -1,0 +1,35 @@
+- name: Deploy the Laravel application
+  hosts: all
+  become: yes
+  tasks:
+    - name: Remove Laravel app container and image
+      block:
+        - name: Stop and remove the existing Laravel app container
+          docker_container:
+            name: laravel_app
+            state: absent
+            force_kill: yes
+
+        - name: Remove the existing Laravel app image
+          docker_image:
+            name: laravel_app
+            state: absent
+    
+      ignore_errors: yes
+    
+    - name: Remove Nginx container and image
+      block:
+        - name: Stop and remove the existing Nginx container
+          docker_container:
+            name: nginx
+            state: absent
+            force_kill: yes
+
+        - name: Remove the existing Nginx image
+          docker_image:
+            name: nginx
+            state: absent
+    
+      ignore_errors: yes
+
+      
