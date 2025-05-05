@@ -73,7 +73,8 @@ services:
       - app_data:/var/www/html/todo
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - app
+      - app1
+      - app2
     networks:
       - custom_network
 
